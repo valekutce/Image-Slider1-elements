@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+  <style media="screen">
+  	@import url('https://fonts.googleapis.com/css2?family=Neucha&family=Poppins:wght@100&family=Source+Sans+Pro:wght@300&display=swap');
+
+  *{
+padding:0;
+margin:0;
+}
+
+h1{
+	font-family: 'Neucha', cursive;
+	text-align: center;
+	margin: 20px 0 30px;
+
+}
+#slider{
+margin:50px auto;
+width:600px;
+height:400px;
+padding:5px;
+box-shadow: 0 0 20px rgba(0,0,0,1);
+position:relative;
+}
+.slide{
+list-style:none;
+}
+#slider>li{
+position:absolute;
+top:5px;
+left:5px;
+right:5px;
+bottom:5px;
+
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+  	<h1>Автоматический слайдер изображений на HTML, CSS и JQuery</h1>
+    <div class='header'>
+
+    </div>
+    <ul id="slider">
+          <li class="slide"><img src="https://i.pinimg.com/originals/2b/de/de/2bdede0647e3cdf75b44ea33723201d9.jpg" width="600px" height="400px"></li>
+          <li class="slide"><img src="https://wallpaperaccess.com/full/1154341.jpg" width="600px" height="400px"></li>
+          <li class="slide"><img src="https://wallpapercave.com/wp/wp2634222.jpg" width="600px" height="400px"></li>
+          <li class="slide"><img src="https://images6.alphacoders.com/462/thumb-1920-462371.jpg" width="600px" height="400px"></li>
+          <li class="slide"><img src="https://images5.alphacoders.com/343/thumb-1920-343645.jpg" width="600px" height="400px"></li>
+      </ul>
+  </div>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#slider>li:gt(0)').hide();
+     setInterval(function() {
+        $('#slider > li:first')
+          .fadeOut(1000)
+          .next()
+          .fadeIn(1000)
+          .end()
+          .appendTo('#slider');
+      }, 2000);
+
+   });
+  </script>
+</body>
+</html>
